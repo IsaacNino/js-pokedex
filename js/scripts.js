@@ -1,12 +1,26 @@
-//DO NOT FORGET TO MAKE MEANIGUL COMMITS AND LEAVE BEHIND HELPFUL COMMENTS// 
+//DO NOT FORGET TO MAKE MEANIGUL COMMITS AND LEAVE BEHIND HELPFUL COMMENTS
 
-//the height properties are made up of both a number value, and a string value//
-//some type properties are enclosed in brackets, to allow multiple values//
+//the height properties is made up of a number value
+//some type properties are enclosed in brackets, to allow multiple values
 
 let pokemonList = [
-    { name: 'Ninetails', types: 'Fire', height: [1.1, 'm'], attack: 76, defense: 75, speed: 100},
-    { name: 'Beedrill', types: ['Bug', 'Poison'], height: [1, 'm'], attack: 90, defense: 40, speed: 75},
-    { name: 'Alakazam', types: 'Psychic', height: [1.5, 'm'], attack: 50, defense: 45, speed: 120},
-    { name: 'Scyther', types: ['Bug', 'Flying'], height: [1.5, 'm'], attack: 110, defense: 80, speed: 105},
-    { name: 'Kabutops', types: ['Water', 'Rock'], height: [1.3, 'm'], attack: 115, defense: 105, speed: 80}
+    { name: 'Ninetails', types: 'Fire', height: 1.1, attack: 76, defense: 75, speed: 100}, //medium
+    { name: 'Beedrill', types: ['Bug', 'Poison'], height: .9, attack: 90, defense: 40, speed: 75}, //small
+    { name: 'Alakazam', types: 'Psychic', height: 1.5, attack: 50, defense: 45, speed: 120}, //big
+    { name: 'Scyther', types: ['Bug', 'Flying'], height: 1.5, attack: 110, defense: 80, speed: 105}, //big
+    { name: 'Kabutops', types: ['Water', 'Rock'], height: 1.3, attack: 115, defense: 105, speed: 80} //medium
 ];
+
+//the closing else clause does not need a condition as it assumes reference to the data that has not been pointed to
+
+for (let i = 0; i < pokemonList.length; i++) {
+    if (pokemonList[i].height >= 1.5) {
+      document.write(pokemonList[i].name + ' ' + '(height: ' + pokemonList[i].height + 'm),' + ' wow! That is a big Pokemon.' + '<br>')
+    }
+    else if (pokemonList[i].height <=1.4 && pokemonList[i].height >=1) {
+      document.write(pokemonList[i].name + ' ' + '(height: ' + pokemonList[i].height + 'm),' + ' that is a meduim Pokemon.' + '<br>')
+    }
+    else {
+       document.write(pokemonList[i].name + ' ' + '(height: ' + pokemonList[i].height + 'm),' + ' that is a small Pokemon.' + '<br>')
+    }
+};
