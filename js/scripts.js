@@ -3,48 +3,59 @@
 //the height properties is made up of a number value
 //some type properties are enclosed in brackets, to allow multiple values
 
-let pokemonRepository = (function () {
-let pokemonList = [
-    { name: 'Ninetails', types: 'Fire', height: 1.1, attack: 76, defense: 75, speed: 100}, //medium
-    { name: 'Beedrill', types: ['Bug', ' Poison'], height: .9, attack: 90, defense: 40, speed: 75}, //small
-    { name: 'Alakazam', types: 'Psychic', height: 1.5, attack: 50, defense: 45, speed: 120}, //big
-    { name: 'Scyther', types: ['Bug', ' Flying'], height: 1.5, attack: 110, defense: 80, speed: 105}, //big
-    { name: 'Kabutops', types: ['Water', ' Rock'], height: 1.3, attack: 115, defense: 105, speed: 80} //medium
-];
+let pokemonRepository = (function() {
+  let pokemonList = [
+    { name: 'Ninetails', types: 'Fire', height: 1.1, attack: 76, defense: 75, speed: 100 }, //medium
+    { name: 'Beedrill', types: ['Bug', ' Poison'], height: .9, attack: 90, defense: 40, speed: 75 }, //small
+    { name: 'Alakazam', types: 'Psychic', height: 1.5, attack: 50, defense: 45, speed: 120 }, //big
+    { name: 'Scyther', types: ['Bug', ' Flying'], height: 1.5, attack: 110, defense: 80, speed: 105 }, //big
+    { name: 'Kabutops', types: ['Water', ' Rock'], height: 1.3, attack: 115, defense: 105, speed: 80 } //medium
+  ];
 
   function add(pokemon) {
-    pokemonList.push(pokemon);
+    if (
+      typeof pokemon === "object" &&
+      "name" in pokemon &&
+      "height" in pokemon &&
+      "types" in pokemon
+    ) {
+      pokemonList.push(pokemon);
+    } else {
+      console.log("pokemon is not correct");
+    }
   }
-
   function getAll() {
     return pokemonList;
+  }
+  function addListItem(pokemon) {
+    let pokemonList = document.querySelector(".pokemon-list");
+    let listItem = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = pokemon.name;
+    button.classList.add("pokemon-button");
+    listItem.appendChild(button);
+    pokemonList.appendChild(listItem);
+    //event listenr getting added in for pokemon information
+    button.addEventListener("click", function(event) {
+      showDetails(pokemon);
+    });
+  }
+
+  function showDetails(pokemon) {
+    console.log(pokemon);
   }
 
   return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem,
+    showDetails: showDetails
   };
 })();
 
-//the closing else clause does not need a condition as it assumes reference to the data that has not been pointed to (old loop)
 
-/*for (let i = 0; i < pokemonList.length; i++) {
-    if (pokemonList[i].height >= 1.5) {
-      document.write(pokemonList[i].name + ' ' + '(height: ' + pokemonList[i].height + 'm),' + ' wow! That is a big Pokemon.' + '<br>')
-    }
-    else if (pokemonList[i].height <=1.4 && pokemonList[i].height >=1) {
-      document.write(pokemonList[i].name + ' ' + '(height: ' + pokemonList[i].height + 'm),' + ' that is a meduim Pokemon.' + '<br>')
-    }
-    else {
-       document.write(pokemonList[i].name + ' ' + '(height: ' + pokemonList[i].height + 'm),' + ' that is a small Pokemon.' + '<br>')
-    }
-};*/
+pokemonRepository.add({ name: "Pikachu", height: 0.3, types: ["electric"] });
 
-
-//adjusted forEach loop to tap into local state of pokemonList variable
-pokemonRepository.getAll().forEach(function(pokemonList){
-  document.write(
-  'This is'+ ' ' + pokemonList.name + ',' + ' its height is ' + pokemonList.height + 'm, and its type is ' + pokemonList.types + '. ' 
-  + ' I wouldn\'t get too close, as its attack power is ' + pokemonList.attack + ', its defense is ' + pokemonList.defense + ', and its speed is ' 
-  + pokemonList.speed + '. ' + '<br>');
+pokemonRepository.getAll().forEach(function(pokemon) {
+  pokemonRepository.addListItem(pokemon);
 });
