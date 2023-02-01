@@ -61,7 +61,9 @@ ul {
   overflow: auto;
   display: grid;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 19px;
+  margin-bottom: 20px;;
+  margin-left: 37.7%;
 }
 
 .modal {
@@ -73,9 +75,9 @@ ul {
   width: 400px;
   max-width: 70%;
   text-align: center;
-  border-radius: 8px;
-  height: 300px;
-  width: 300px;
+  border-radius: 2px;
+  height: 295px;
+  width: 420px;
   max-height: 100%;
 }
 
@@ -121,6 +123,13 @@ h1 {
   font-size: 20px;
 }
 
-sprite {
-  padding: 20px;
+.sprite {
+  padding: 2px;
+}
+
+.pokedex-image {
+  display:grid;
+  float: left;
+  position: fixed;
+  margin: 5%;
 }
