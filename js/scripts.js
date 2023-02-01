@@ -43,7 +43,7 @@ let pokemonRepository = (function() {
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
-          detailsUrl: item.url
+          detailsUrl: item.url,
         };
         add(pokemon);
       });
@@ -88,7 +88,7 @@ let pokemonRepository = (function() {
         modalTitle.innerText = item.name;
       
         let modalContent = document.createElement('p');
-        modalContent.innerText = item.height + item.types;
+        modalContent.innerText = (item.name + '\'s height is ' +  item.height + 'm! ');
       
         modal.appendChild(closeButton);
         modal.appendChild(modalTitle);
@@ -100,7 +100,7 @@ let pokemonRepository = (function() {
         modalContainer.classList.add('is-visible');
       
       function hideModal () {
-        modalContainer.classList.remove ('is-visible');
+        modalContainer.classList.remove('is-visible');
       }
       
       window.addEventListener('keydown', (e) => {
@@ -118,6 +118,7 @@ let pokemonRepository = (function() {
       
       document.querySelector(".pokemon-button").addEventListener("click", () =>{
         showDetails('Modal Title', 'Modal Content');
+        
       });
       
     });
