@@ -1,4 +1,4 @@
-html,
+/*html,
 body {
   background-color: #000;
   margin: auto;
@@ -20,7 +20,7 @@ ul {
     font-family: monospace;
     font-weight:700;
     margin: 8px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s; /* Safari *//*
     transition-duration: 0.4s;
     cursor: pointer;
     background-color: #184252;
@@ -119,8 +119,9 @@ h1 {
 }
 
 .pokedex-image {
-  display:grid;
+  /*display:grid;*//*
+  display: none;
   float: left;
   position: fixed;
   margin: 5%;
-}
+}*/
