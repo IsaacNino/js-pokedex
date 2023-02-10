@@ -3,18 +3,24 @@ body {
   display: flex;
   flex-direction: column;
   font-family: monospace;
-  margin: auto;
 }
 
 .navbar {
    background-color: #000;
    line-height: 1;
+   margin-bottom: 30px;
 }
 
 .navbar-brand {
   font-family: monospace;
   font-weight: 400;
   color: #DC3545 !important;
+  font-size: 45px !important;
+}
+
+h2 {
+  margin: 0 auto;
+  font-family: monospace;
   font-size: 35px !important;
 }
 
@@ -27,23 +33,34 @@ body {
   margin: 0 auto;
 }
 
+.pokemon-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
 .pokemon-button {
   padding: 16px 32px;
   text-align: center;
-  font-size: 17px;
+  font-size: 19px;
   font-family: monospace;
   font-weight: 400;
-  margin: 8px 2px;
+  margin: 10px 8px;
   -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
   cursor: pointer;
   background-color: #184252;
-  color: #fff;
-  border: 2px solid #353935;
+  color: #DADADA;
+  border: 2px solid #171717;
   border-radius: 7px;
   text-transform: capitalize;
   line-height: 1.3em;
-  width: 210px;
+  width: 200px;
   box-shadow: -4.5px -4.5px 5px #36454F;
   opacity: .9;
 }
@@ -58,4 +75,59 @@ box-shadow: -4.5px -4.5px 1.5px #DC3545;
 
 .sprite {
   padding: 2px;
+}
+
+.modal-title {
+  font-family: monospace;
+  font-size: 25px;
+  font-weight: 600;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+.modal-body {
+  font-family: monospace;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 600 !important;
+}
+
+.sprite {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.btn-primary {
+  margin: auto;
+  background-color: #DC3545 !important;
+  opacity: .85;
+  border-color: #DC3545 !important;
+  font-family: monospace;
+}
+
+.btn-primary:hover {
+  opacity: 1;
+}
+
+.btn-secondary {
+  margin: auto;
+  font-family: monospace;
+}
+
+.modal-content {
+  background: rgba(0,0,0,0.2) !important;
+  backdrop-filter: saturate(180%) blur(5px) !important;
+  color: #fff;
+  border-radius: 10px !important;
+  border-color: #36454F !important;
+}
+
+span {
+  color: #fff;
+}
+
+.name {
+  color: #36454F;
 }
